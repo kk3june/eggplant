@@ -1,4 +1,5 @@
 interface Props {
+    name: string
     type: string
     placeholder: string
     required: boolean
@@ -6,11 +7,12 @@ interface Props {
 }
 
 function FormInput(props: Props) {
-    const { type, placeholder, required, errors } = props
+    const { name, type, placeholder, required, errors } = props
 
     return (
         <>
             <input
+                name={name}
                 type={type}
                 placeholder={placeholder}
                 required={required}
