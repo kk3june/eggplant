@@ -1,12 +1,12 @@
 'use client'
 
+import handleSubmit from '@/app/login/action'
 import FormButton from '@/components/form-button'
 import FormInput from '@/components/form-input'
-import { useFormState, useFormStatus } from 'react-dom'
-import handleSubmit from '@/app/login/action'
+import { useFormState } from 'react-dom'
 
 export default function LogIn() {
-    const [state, action] = useFormState(handleSubmit, { test: 1 } as any)
+    const [state, action] = useFormState(handleSubmit, null)
 
     return (
         <main className="flex flex-col gap-10 py-8 px-6">
@@ -18,21 +18,21 @@ export default function LogIn() {
                         type="email"
                         placeholder="Email"
                         required
-                        errors={state.errors ?? []}
+                        errors={state?.fieldErrors.email}
                     />
-                    <FormInput
-                        name="username"
-                        type="text"
-                        placeholder="Username"
-                        required
-                        errors={[]}
-                    />
+                        <FormInput
+                            name="username"
+                            type="text"
+                            placeholder="Username"
+                            required
+                            errors={state?.fieldErrors.username}
+                        />
                     <FormInput
                         name="password"
                         type="passwords"
                         placeholder="Password"
                         required
-                        errors={[]}
+                        errors={state?.fieldErrors.password}
                     />
                     <span>
                         <FormButton />

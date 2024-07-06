@@ -3,7 +3,7 @@ interface Props {
     type: string
     placeholder: string
     required: boolean
-    errors: string[]
+    errors?: string[]
 }
 
 function FormInput(props: Props) {
@@ -18,7 +18,7 @@ function FormInput(props: Props) {
                 required={required}
                 className="w-full h-10 ring-2 rounded-md px-2 focus:outline-none focus:ring-8 focus:ring-violet-300 text-gray-700"
             />
-            {errors.map((error, index) => (
+            {errors?.map((error, index) => (
                 <span key={index} className="text-red-500 font-large">
                     {error}
                 </span>
