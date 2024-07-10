@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { useFormStatus } from 'react-dom'
 
 function FormButton() {
@@ -11,7 +10,7 @@ function FormButton() {
             disabled={pending}
             className="w-full p-3 rounded-md bg-violet-500 disabled:bg-neutral-500"
         >
-            {pending ? 'Loding...' : 'Login'}
+            {pending ? 'Loding...' : 'Create Account'}
         </button>
     )
 }
